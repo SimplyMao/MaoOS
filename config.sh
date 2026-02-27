@@ -6,7 +6,7 @@ echo "yay is not installed. Installing yay..."
 clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 
 echo "Installing necessary packages..."
-sudo pacman -S --noconfigm waybar pcmanfm foot neovim
+sudo pacman -S --noconfigm waybar pcmanfm foot neovim wiremix
 yay -S --noconfirm mangowc-git helium-browser-bin
 
 # Optional: Any additional commands like rebooting, restarting services, etc.

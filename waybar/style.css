@@ -1,0 +1,29 @@
+* {
+    border: none;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px; /* Ökat från 11px för att matcha den tjockare baren */
+}
+
+window#waybar {
+    background: rgba(10, 10, 10, 0.9);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+#workspaces {
+    margin-top: 15px;
+}
+
+#workspaces button {
+    padding: 8px 0; /* Mer utrymme mellan siffrorna */
+    font-size: 16px;
+    color: #555555;
+}
+
+#clock {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: 500; /* Inte för tjockt, då ser strecket klumpigt ut */
+    color: #ffffff;
+    background-color: transparent;
+}

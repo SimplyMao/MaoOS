@@ -1,0 +1,18 @@
+{
+    "layer": "top",
+    "position": "left",
+    "width": 50,
+    "modules-left": ["custom/tags"], // Här är den nya modulen
+    "modules-center": ["clock"],
+    "modules-right": [],
+
+    "custom/tags": {
+        "exec": "~/.config/waybar/tags.sh",
+        "format": "{}"
+    },
+
+    "clock": {
+        "format": "{:%m\n%d\n—\n%H\n%M}",
+        "tooltip": false
+    }
+}

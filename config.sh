@@ -13,6 +13,8 @@ echo "Removing and adding directories..."
 sudo rm -rf yay
 sudo mkdir Downloads
 sudo mkdir Documents
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+sudo rm -rf ~/.config/nvim/.git
 # Optional: Any additional commands like rebooting, restarting services, etc.
 echo " 
 /$$      /$$                      /$$$$$$   /$$$$$$ 

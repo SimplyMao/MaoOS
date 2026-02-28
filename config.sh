@@ -9,6 +9,10 @@ echo "Installing necessary packages..."
 sudo pacman -S --noconfigm waybar pcmanfm foot neovim wiremix
 yay -S --noconfirm mangowc-git helium-browser-bin
 
+echo "Removing and adding directories..."
+sudo rm -rf yay
+sudo mkdir Downloads
+sudo mkdir Documents
 # Optional: Any additional commands like rebooting, restarting services, etc.
 echo " 
 /$$      /$$                      /$$$$$$   /$$$$$$ 

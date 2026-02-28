@@ -6,16 +6,23 @@ echo "yay is not installed. Installing yay..."
 clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 
 echo "Installing necessary packages..."
-sudo pacman -S --noconfigm waybar pcmanfm foot neovim wiremix
+sudo pacman -S --noconfigm waybar pcmanfm foot neovim wiremix keyd
 yay -S --noconfirm mangowc-git helium-browser-bin
 
 echo "Removing and adding directories..."
 sudo rm -rf yay
 sudo mkdir Downloads
 sudo mkdir Documents
+
+# lazyvim
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 sudo rm -rf ~/.config/nvim/.git
-# Optional: Any additional commands like rebooting, restarting services, etc.
+
+
+
+
+sudo systemctl restart keyd
+
 echo " 
 /$$      /$$                      /$$$$$$   /$$$$$$ 
 | $$$    /$$$                     /$$__  $$ /$$__  $$

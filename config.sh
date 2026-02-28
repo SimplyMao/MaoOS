@@ -19,6 +19,7 @@ yay -S --noconfirm mangowc-git helium-browser-bin wl-clip-persist cliphist wl-cl
 # 4. Förbered mappar
 echo "Skapar mappar..."
 mkdir -p ~/.config/mango
+mkdir -p ~/.config/waybar
 
 # 5. KLONA DITT MAOOS REPO OCH FLYTTA FILER
 echo "Hämtar dina dotfiles från MaoOS..."

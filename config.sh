@@ -13,7 +13,7 @@ cd ~
 
 # 3. Installera alla nödvändiga paket
 echo "Installerar verktyg och MangoWC..."
-sudo pacman -S --noconfirm waybar pcmanfm foot neovim wireplumber keyd
+sudo pacman -S --noconfirm waybar pcmanfm foot neovim wireplumber keyd rofi
 yay -S --noconfirm mangowc-git helium-browser-bin wl-clip-persist cliphist wl-clipboard brightnessctl xdg-desktop-portal-wlr
 
 # 4. Förbered mappar

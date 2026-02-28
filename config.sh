@@ -30,6 +30,7 @@ sudo cp /tmp/maoos/keyd/default.conf /etc/keyd/default.conf
 
 # Flytta MangoWC config
 cp -r /tmp/maoos/mango/* ~/.config/mango/
+cp -r /tmp/maoos/waybar/* ~/.config/waybar/
 
 # 6. Installera LazyVim
 echo "Setting up LazyVim..."

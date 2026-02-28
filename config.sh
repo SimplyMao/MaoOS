@@ -23,7 +23,7 @@ yay -S --noconfirm mangowc-git helium-browser-bin wl-clip-persist cliphist wl-cl
 
 # 4-5. Konfiguration
 echo "Fixar konfigurationer..."
-mkdir -p ~/.config/mango ~/.config/waybar
+mkdir -p ~/.config/niri ~/.config/waybar
 
 rm -rf /tmp/maoos
 git clone https://github.com/SimplyMao/MaoOS.git /tmp/maoos
@@ -31,7 +31,7 @@ git clone https://github.com/SimplyMao/MaoOS.git /tmp/maoos
 sudo mkdir -p /etc/keyd
 sudo cp /tmp/maoos/keyd/default.conf /etc/keyd/default.conf
 
-cp -r /tmp/maoos/mango/* ~/.config/mango/ 2>/dev/null || true
+cp -r /tmp/maoos/niri/* ~/.config/niri/ 2>/dev/null || true
 cp -r /tmp/maoos/waybar/* ~/.config/waybar/ 2>/dev/null || true
 
 # 6. LazyVim

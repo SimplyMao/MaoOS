@@ -1,33 +1,50 @@
 #!/bin/bash
 
-echo "Updating system and installing base-devel, git, and yay..."
+# 1. Uppdatera systemet och installera bas-paket
+echo "Uppdaterar systemet..."
 sudo pacman -Syu --noconfirm
 sudo pacman -S --needed --noconfirm git base-devel
 
-echo "Installing yay..."
+# 2. Installera yay (AUR helper)
+echo "Installerar yay..."
 git clone https://aur.archlinux.org/yay.git /tmp/yay
 cd /tmp/yay && makepkg -si --noconfirm
 cd ~
 
-echo "Installing necessary packages..."
-# FIX 2: Stavfel --noconfigm -> --noconfirm
+# 3. Installera alla nödvändiga paket
+echo "Installerar verktyg och MangoWC..."
 sudo pacman -S --noconfirm waybar pcmanfm foot neovim wireplumber keyd
 yay -S --noconfirm mangowc-git helium-browser-bin
 
-echo "Creating user directories..."
-# FIX 3: Ta inte bort mappar med sudo om de ligger i din hemkatalog.
-# Och använd 'mkdir -p' så kraschar inte scriptet om de redan finns.
-mkdir -p ~/Downloads ~/Documents
+# 4. Förbered mappar
+echo "Skapar mappar..."
+mkdir -p ~/.config/mango
 
-# LazyVim setup
+# 5. KLONA DITT MAOOS REPO OCH FLYTTA FILER
+echo "Hämtar dina dotfiles från MaoOS..."
+git clone https://github.com/SimplyMao/MaoOS.git /tmp/maoos
+
+# Flytta Keyd config (behöver sudo för /etc)
+sudo mkdir -p /etc/keyd
+sudo cp /tmp/maoos/keyd/default.conf /etc/keyd/default.conf
+
+# Flytta MangoWC config
+cp -r /tmp/maoos/mango/* ~/.config/mango/
+
+# 6. Installera LazyVim
 echo "Setting up LazyVim..."
+rm -rf ~/.config/nvim # Rensar om det fanns något gammalt
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
 
-sudo mkdir -p /etc/keyd
-sudo curl -L https://raw.githubusercontent.com/SimplyMao/MaoOS/main/keyd/default.conf -o /etc/keyd/default.conf
-# Starta om keyd för att aktivera den nya filen
-sudo systemctl enable --now keyd
+# 7. Aktivera Keyd (din Caps Lock -> Super fix)
+echo "Startar Keyd..."
+sudo systemctl enable keyd
+sudo systemctl restart keyd
+
+# 8. Städa upp temporära filer
+rm -rf /tmp/maoos
+rm -rf /tmp/yay
 
 echo " 
  /$$      /$$                       /$$$$$$  /$$$$$$ 
@@ -39,4 +56,4 @@ echo "
 | $$ \/  | $$|  $$$$$$$|  $$$$$$/|  $$$$$$/|  $$$$$$/
 |__/     |__/ \_______/ \______/  \______/  \______/ 
                                                      "
-echo "All done! Please restart your session."
+echo "Allt är klart! Starta om datorn eller logga ut för att köra MaoOS."

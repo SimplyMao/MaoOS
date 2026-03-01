@@ -1,6 +1,6 @@
 # MangoWC Configurations
 
-This repository contains my personal **MangoWC** configurations along with related setup files for a minimal and efficient Wayland-based environment.
+This repository contains my personal **Niri** configurations along with related setup files for a minimal and efficient Wayland-based environment.
 
 ---
 
@@ -8,7 +8,7 @@ This repository contains my personal **MangoWC** configurations along with relat
 
 This setup includes:
 
-- **MangoWC** – A tiling window compositor for Wayland.
+- **Niri** – A scrolling tiling window compositor for Wayland.
 - **Waybar** – Customizable status bar for Wayland.
 - **Foot** – Lightweight Wayland-compatible terminal.
 - **PCManFM** – Lightweight file manager.

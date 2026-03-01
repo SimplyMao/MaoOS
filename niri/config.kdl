@@ -308,7 +308,7 @@ window-rule {
 binds {
     Mod+Return { spawn "foot"; }
     Mod+Space { spawn "rofi" "-show" "drun"; }
-    Mod+B { spawn "helium-browser"; }
+    Mod+B { spawn "helium-browser"  "--enable-features=UseOzonePlatform,RemoveRedirectionBitmap" "--ozone-platform=wayland" "--force-dark-mode"; }
     Mod+E { spawn "nautilus"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }

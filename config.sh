@@ -1,50 +1,42 @@
 #!/bin/bash
-set -e # Avbryt vid fel
+set -euo pipefail
 
-echo "Uppdaterar systemet..."
-sudo pacman -Syu --noconfirm
-sudo pacman -S --needed --noconfirm git base-devel
+echo "🚀 Installing MaoOS..."
 
-# 2. Installera yay (Säkrare hantering)
+# 1. Install yay if missing (Helper for both Pacman & AUR)
 if ! command -v yay &> /dev/null; then
-    echo "Installerar yay..."
-    rm -rf /tmp/yay
     git clone https://aur.archlinux.org/yay.git /tmp/yay
-    cd /tmp/yay && makepkg -si --noconfirm
-    cd ~
-else
-    echo "yay är redan installerat, hoppar över..."
+    (cd /tmp/yay && makepkg -si --noconfirm)
 fi
 
-# 3. Paket (La till xdg-desktop-portal)
-echo "Installerar verktyg och MangoWC..."
-sudo pacman -S --needed --noconfirm niri xwayland-satellite xdg-desktop-portal-gnome xdg-desktop-portal-gtk gnome-keyring alacritty waybar nautilus foot neovim keyd rofi
-yay -S --needed --noconfirm dms-shell-bin matugen cava qt6-multimedia-ffmpeg helium-browser-bin
-systemctl --user add-wants niri.service dms
+# 2. Combined Package List (Removed xdg-desktop-portal-gtk)
+# We use yay for everything now to save lines.
+echo "📦 Installing software..."
+yay -S --needed --noconfirm \
+    niri xwayland-satellite xdg-desktop-portal-gnome gnome-keyring \
+    alacritty waybar nautilus foot neovim keyd rofi \
+    dms-shell-bin matugen cava qt6-multimedia-ffmpeg helium-browser-bin
 
-# 4-5. Konfiguration
-echo "Fixar konfigurationer..."
-mkdir -p ~/.config/niri ~/.config/waybar
-
-rm -rf /tmp/maoos
+# 3. Configs (Using a simpler copy method)
+echo "📂 Applying configs..."
+[ -d /tmp/maoos ] && rm -rf /tmp/maoos
 git clone https://github.com/SimplyMao/MaoOS.git /tmp/maoos
+
+mkdir -p ~/.config/niri ~/.config/waybar
+cp -r /tmp/maoos/niri/* ~/.config/niri/
+cp -r /tmp/maoos/waybar/* ~/.config/waybar/
 
 sudo mkdir -p /etc/keyd
 sudo cp /tmp/maoos/keyd/default.conf /etc/keyd/default.conf
 
-cp -r /tmp/maoos/niri/* ~/.config/niri/ 2>/dev/null || true
-cp -r /tmp/maoos/waybar/* ~/.config/waybar/ 2>/dev/null || true
-
-# 6. LazyVim
+# 4. LazyVim (Keep it simple)
 if [ ! -d "$HOME/.config/nvim" ]; then
-    echo "Setting up LazyVim..."
     git clone https://github.com/LazyVim/starter ~/.config/nvim
-    rm -rf ~/.config/nvim/.git
 fi
 
-# 7. Aktivera tjänster
-echo "Startar Keyd..."
+# 5. Enable Services & Set Dark Mode
 sudo systemctl enable --now keyd
-dconf write /org/gnome/desktop/interface/color-scheme '"prefer-dark"'
+# This ensures the setting exists before niri even starts
+dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
 
-echo "MaoOS är redo!"
+echo "✨ Done! Welcome to MaoOS, please restart." 

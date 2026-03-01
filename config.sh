@@ -13,9 +13,9 @@ fi
 # We use yay for everything now to save lines.
 echo "📦 Installing software..."
 yay -S --needed --noconfirm \
-    niri xwayland-satellite xdg-desktop-portal-gnome gnome-keyring \
-    alacritty waybar nautilus foot neovim keyd rofi \
-    dms-shell-bin matugen cava qt6-multimedia-ffmpeg helium-browser-bin
+    niri xwayland-satellite xdg-desktop-portal-gnome \
+    waybar nautilus foot neovim keyd rofi \
+    matugen qt6-multimedia-ffmpeg helium-browser-bin
 
 # 3. Configs (Using a simpler copy method)
 echo "📂 Applying configs..."

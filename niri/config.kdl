@@ -1,23 +1,24 @@
 prefer-no-csd
 input {
     keyboard {
-      repeat-rate 35
-    
         xkb {
             layout "se"
-          }
+        }
         numlock
     }
 
+    // Next sections include libinput settings.
+    // Omitting settings disables them, or leaves them at their default values.
+    // All commented-out settings here are examples, not defaults.
     touchpad {
         // off
         tap
         // dwt
         // dwtp
         // drag false
-        // drag-lock
+        drag-lock
         natural-scroll
-        // accel-speed 0.2
+        accel-speed 0.2
         // accel-profile "flat"
         // scroll-method "two-finger"
         // disabled-on-external-mouse
@@ -47,14 +48,14 @@ input {
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    focus-follows-mouse max-scroll-amount="0%"
+    focus-follows-mouse max-scroll-amount="95%"
 }
 
 output "DP-2" {
-    mode "2560x1440@360"
-    scale 1
-    transform "normal"
-    position x=1080 y=0
+  mode "2560x1440@360"
+  scale 1.25
+  transform "normal"
+  position x=1080 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -299,52 +300,62 @@ window-rule {
 }
 
 binds {
-
-    // --- Menu and Terminal ---
     Mod+Return { spawn "foot"; }
     Mod+Space { spawn "rofi" "-show" "drun"; }
     Mod+B { spawn "helium-browser"; }
-    Mod+E { spawn "pcmanfm"; }
+    Mod+E { spawn "nautilus"; }
 
-    // --- The Omarchy-style Custom Menu ---
-    Mod+Alt+Space { spawn "bash" "-c" "$HOME/.config/niri/scripts/niri-menu.sh"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+    Mod+O repeat=false { toggle-overview; }
+
+    Mod+D repeat=false { close-window; }
+
+    Mod+H     { focus-column-left; }
+    Mod+J     { focus-window-down; }
+    Mod+K     { focus-window-up; }
+    Mod+L     { focus-column-right; }
+
+    Mod+Alt+H     { move-column-left; }
+    Mod+Alt+J     { move-window-down; }
+    Mod+Alt+K     { move-window-up; }
+    Mod+Alt+L     { move-column-right; }
 
 
+    // You can bind mouse wheel scroll ticks using the following syntax.
+    // These binds will change direction based on the natural-scroll setting.
+    //
+    // To avoid scrolling through workspaces really fast, you can use
+    // the cooldown-ms property. The bind will be rate-limited to this value.
+    // You can set a cooldown on any bind, but it's most useful for the wheel.
+    Shift+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Shift+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Shift+Alt+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Shift+Alt+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
+    Shift+J     { focus-workspace-down; }
+    Shift+K     { focus-workspace-up; }
+    Shift+Alt+J { move-column-to-workspace-down; }
+    Shift+Alt+K { move-column-to-workspace-up; }
 
-    // --- Exit & Kill ---
-    Mod+0 { quit; }
-    Mod+D { close-window; }
+    // Usually scrolling up and down with Shift in applications results in
+    // horizontal scrolling; these binds replicate that.
+    Mod+WheelScrollDown      { focus-column-right; }
+    Mod+WheelScrollUp        { focus-column-left; }
+    Mod+Alt+WheelScrollDown { move-column-right; }
+    Mod+Alt+WheelScrollUp   { move-column-left; }
 
-    // --- Layout & Sizes ---
-    Mod+F { maximize-column; }
-    Mod+Alt+F { fullscreen-window; }
-    Mod+C { center-column; }
-    
-    // Niri doesn't always use 'minimize'. Instead, we often use the Overview.
-    // I've commented this out to stop the error. 
-    // If you want to hide a window, you usually move it to another workspace.
-    // Mod+I { minimize-window; } 
-
-    // --- Navigation ---
-    Mod+H { focus-column-left; }
-    Mod+L { focus-column-right; }
-    Mod+K { focus-window-up; }
-    Mod+J { focus-window-down; }
-
-    // --- Swap / Move ---
-    Mod+Alt+H { move-column-left; }
-    Mod+Alt+L { move-column-right; }
-    Mod+Alt+K { move-window-up; }
-    Mod+Alt+J { move-window-down; }
-
-    // --- Resize (Numbers in quotes for safety) ---
-    Ctrl+Alt+H { set-column-width "-200"; }
-    Ctrl+Alt+L { set-column-width "+200"; }
-    Ctrl+Alt+K { set-window-height "-200"; }
-    Ctrl+Alt+J { set-window-height "+200"; }
-
-    // --- Workspaces ---
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -354,23 +365,68 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
+    Mod+Alt+1 { move-column-to-workspace 1; }
+    Mod+Alt+2 { move-column-to-workspace 2; }
+    Mod+Alt+3 { move-column-to-workspace 3; }
+    Mod+Alt+4 { move-column-to-workspace 4; }
+    Mod+Alt+5 { move-column-to-workspace 5; }
+    Mod+Alt+6 { move-column-to-workspace 6; }
+    Mod+Alt+7 { move-column-to-workspace 7; }
+    Mod+Alt+8 { move-column-to-workspace 8; }
+    Mod+Alt+9 { move-column-to-workspace 9; }
 
-    Ctrl+1 { move-column-to-workspace 1; }
-    Ctrl+2 { move-column-to-workspace 2; }
-    Ctrl+3 { move-column-to-workspace 3; }
-    Ctrl+4 { move-column-to-workspace 4; }
-    Ctrl+5 { move-column-to-workspace 5; }
-    Ctrl+6 { move-column-to-workspace 6; }
-    Ctrl+7 { move-column-to-workspace 7; }
-    Ctrl+8 { move-column-to-workspace 8; }
-    Ctrl+9 { move-column-to-workspace 9; }
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
 
-    // --- Overview (The Niri way to find 'lost' windows) ---
-    Mod+O { toggle-overview; }
+    // Consume one window from the right to the bottom of the focused column.
+    Mod+Comma  { consume-window-into-column; }
+    // Expel the bottom window from the focused column to the right.
+    Mod+Period { expel-window-from-column; }
 
-    // --- Media ---
-    XF86AudioRaiseVolume { spawn "dms" "ipc" "call" "audio" "increment" "3"; }
-    XF86AudioLowerVolume { spawn "dms" "ipc" "call" "audio" "decrement" "3"; }
-    XF86MonBrightnessUp   { spawn "dms" "ipc" "call" "brightness" "increment" "1"; }
-    XF86MonBrightnessDown { spawn "dms" "ipc" "call" "brightness" "decrement" "1"; }
+    Mod+R { switch-preset-column-width; }
+    // Cycling through the presets in reverse order is also possible.
+    // Mod+R { switch-preset-column-width-back; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+
+    // Expand the focused column to space not taken up by other fully visible columns.
+    // Makes the column "fill the rest of the space".
+    Mod+I { expand-column-to-available-width; }
+
+    Mod+C { center-column; }
+
+    // Center all fully visible columns on screen.
+    Mod+Ctrl+C { center-visible-columns; }
+
+    // Finer width adjustments.
+    // This command can also:
+    // * set width in pixels: "1000"
+    // * adjust width in pixels: "-5" or "+5"
+    // * set width as a percentage of screen width: "25%"
+    // * adjust width as a percentage of screen width: "-10%" or "+10%"
+    // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
+    // set-column-width "100" will make the column occupy 200 physical screen pixels.
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Plus { set-column-width "+10%"; }
+
+    // Finer height adjustments when in column with other windows.
+    Mod+Alt+Minus { set-window-height "-10%"; }
+    Mod+Alt+Plus { set-window-height "+10%"; }
+
+    // Move the focused window between the floating and the tiling layout.
+    Mod+V       { toggle-window-floating; }
+    Mod+Alt+V { switch-focus-between-floating-and-tiling; }
+
+ 
+    Mod+T { toggle-column-tabbed-display; }
+
+
+
+    Mod+S { screenshot; }
+
+
+    // The quit action will show a confirmation dialog to avoid accidental exits.
+    Mod+0 { quit; }
 }

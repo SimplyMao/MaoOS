@@ -18,8 +18,9 @@ fi
 
 # 3. Paket (La till xdg-desktop-portal)
 echo "Installerar verktyg och MangoWC..."
-sudo pacman -S --needed --noconfirm waybar pcmanfm foot neovim wireplumber keyd rofi xdg-desktop-portal
-yay -S --noconfirm mangowc-git helium-browser-bin wl-clip-persist cliphist wl-clipboard brightnessctl xdg-desktop-portal-wlr
+sudo pacman -S --needed --noconfirm niri xwayland-satellite xdg-desktop-portal-gnome xdg-desktop-portal-gtk gnome-keyring alacritty waybar nautilus foot neovim keyd rofi
+yay -S --needed --noconfirm dms-shell-bin matugen cava qt6-multimedia-ffmpeg helium-browser-bin
+systemctl --user add-wants niri.service dms
 
 # 4-5. Konfiguration
 echo "Fixar konfigurationer..."
@@ -44,5 +45,6 @@ fi
 # 7. Aktivera tjänster
 echo "Startar Keyd..."
 sudo systemctl enable --now keyd
+dconf write /org/gnome/desktop/interface/color-scheme '"prefer-dark"'
 
 echo "MaoOS är redo!"

@@ -1,0 +1,41 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono NF", monospace;
+    font-size: 11px;
+}
+
+window#waybar {
+    background-color: #11111b;
+    border-right: 1px solid #313244;
+    color: #cdd6f4;
+}
+
+/* We use padding-right to push the text away from the right edge */
+#workspaces button {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 14px; 
+    color: #585b70;
+}
+
+#workspaces button.focused {
+    color: #89b4fa;
+    border-left: 2px solid #89b4fa;
+}
+
+#clock {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 8px;
+    font-weight: bold;
+}
+
+#memory {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 8px;
+}
+
+#memory.warning { color: #fab387; }
+#memory.critical { color: #f38ba8; }

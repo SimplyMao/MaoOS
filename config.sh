@@ -39,4 +39,25 @@ sudo systemctl enable --now keyd
 # This ensures the setting exists before niri even starts
 dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
 
+# 6. Setup Autologin on TTY1
+echo "🔑 Setting up autologin..."
+sudo mkdir -p /etc/systemd/system/getty@tty1.service.d/
+sudo bash -c "cat <<EOF > /etc/systemd/system/getty@tty1.service.d/override.conf
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --autologin $USER --noclear %I linux
+EOF"
+
+# 7. Setup Auto-start for niri in .bash_profile
+echo "🖥️ Setting up niri auto-start..."
+if ! grep -q "niri-session" ~/.bash_profile 2>/dev/null; then
+    cat <<EOF >> ~/.bash_profile
+
+# Start niri automatically on TTY1 login
+if [[ -z \$DISPLAY ]] && [[ \$(tty) = /dev/tty1 ]]; then
+    exec niri-session
+fi
+EOF
+fi
+
 echo "✨ Done! Welcome to MaoOS, please restart." 

@@ -350,10 +350,10 @@ binds {
     Shift+Alt+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
     Shift+Alt+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
-    Shift+J     { focus-workspace-down; }
-    Shift+K     { focus-workspace-up; }
-    Shift+Alt+J { move-column-to-workspace-down; }
-    Shift+Alt+K { move-column-to-workspace-up; }
+    Mod+U     { focus-workspace-down; }
+    Mod+I     { focus-workspace-up; }
+    Mod+Alt+U { move-column-to-workspace-down; }
+    Mod+Alt+I { move-column-to-workspace-up; }
 
     // Usually scrolling up and down with Shift in applications results in
     // horizontal scrolling; these binds replicate that.
@@ -384,7 +384,7 @@ binds {
     // Consume one window from the right to the bottom of the focused column.
     Mod+N { consume-or-expel-window-left; }
     Mod+M { consume-or-expel-window-right; }
-    Mod+W { toggle-column-tabbed-display; }
+    Mod+T { toggle-column-tabbed-display; }
 
     Mod+R { switch-preset-column-width; }
     // Cycling through the presets in reverse order is also possible.
@@ -396,7 +396,7 @@ binds {
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
-    Mod+I { expand-column-to-available-width; }
+    Mod+G { expand-column-to-available-width; }
 
     Mod+C { center-column; }
 
@@ -422,8 +422,6 @@ binds {
     Mod+V       { toggle-window-floating; }
     Mod+Alt+V { switch-focus-between-floating-and-tiling; }
 
- 
-    Mod+T { toggle-column-tabbed-display; }
 
 
 

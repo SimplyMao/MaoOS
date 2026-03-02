@@ -352,11 +352,11 @@ yay -S --needed --noconfirm --noprogressbar \
     foot \
     neovim \
     keyd \
+    swaybg \
     rofi-wayland \
     matugen-bin \
     qt6-multimedia-ffmpeg \
     helium-browser-bin \
-    swww \
     wl-clipboard \
     grim slurp \
     mako \

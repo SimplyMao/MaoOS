@@ -1,4 +1,4 @@
-# Niri Configurations
+# MaoOS is based on Niri
 
 This repository contains my personal **Niri** configurations along with related setup files for a minimal and efficient Wayland-based environment.
 

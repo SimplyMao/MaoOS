@@ -3,34 +3,24 @@ set -euo pipefail
 
 echo "🚀 Installing MaoOS..."
 
-# 1. Install yay if missing (Helper for both Pacman & AUR)
+# 1. Install yay if missing
 if ! command -v yay &> /dev/null; then
     git clone https://aur.archlinux.org/yay.git /tmp/yay
     (cd /tmp/yay && makepkg -si --noconfirm)
 fi
 
-# 2. Install Software (Including Adwaita dark dependencies)
+# 2. Install Packages
 echo "📦 Installing software..."
 yay -S --needed --noconfirm \
-    niri xwayland-satellite xdg-desktop-portal-gnome \
+    niri xwayland-satellite \
+    xdg-desktop-portal xdg-desktop-portal-gtk \
     waybar nautilus foot neovim keyd rofi \
     matugen qt6-multimedia-ffmpeg helium-browser-bin \
-    gnome-themes-extra gnome-themes-extra-gtk2 \
-    adwaita-qt5-git adwaita-qt6-git
+    dconf gsettings-desktop-schemas
 
-# 3. Force Adwaita Dark System-wide
-echo "🌑 Enabling system-wide Adwaita Dark..."
-
-PROFILE_FILE="$HOME/.profile"
-
-# Append only if not already present
-grep -qxF 'export GTK_THEME=Adwaita:dark' "$PROFILE_FILE" 2>/dev/null || cat >> "$PROFILE_FILE" <<EOF
-
-# MaoOS Dark Theme
-export GTK_THEME=Adwaita:dark
-export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
-export QT_STYLE_OVERRIDE=Adwaita-Dark
-EOF
+# 3. Enable GNOME Dark Mode
+echo "🌙 Enabling GNOME dark mode..."
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark || true
 
 # 4. Configs
 echo "📂 Applying configs..."

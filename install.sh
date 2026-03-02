@@ -115,11 +115,8 @@ gather_user_config() {
     while true; do
         PASS1=$(wt_passwordbox "$APP_TITLE" "Enter password (used for $NEW_USER and root):")
         PASS2=$(wt_passwordbox "$APP_TITLE" "Confirm password:")
-        if [[ "$PASS1" == "$PASS2" && ${#PASS1} -ge 8 ]]; then
+        if [[ "$PASS1" == "$PASS2" && -n "$PASS1" ]]; then
             break
-        elif [[ ${#PASS1} -lt 8 ]]; then
-            whiptail --title "Weak Password" \
-                --msgbox "Password must be at least 8 characters." 8 60
         else
             whiptail --title "Mismatch" \
                 --msgbox "Passwords do not match. Please try again." 8 60

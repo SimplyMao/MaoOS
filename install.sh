@@ -346,7 +346,6 @@ yay -S --needed --noconfirm --noprogressbar \
     niri \
     xwayland-satellite \
     xdg-desktop-portal-gnome \
-    xdg-desktop-portal-wlr \
     waybar \
     nautilus \
     foot \

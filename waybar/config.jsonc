@@ -4,9 +4,9 @@
     "width": 44,
     "spacing": 0,
 
-    "modules-left": ["niri/workspaces"],
+    "modules-left": ["memory"],
     "modules-center": ["clock"],
-    "modules-right": ["memory"],
+    "modules-right": ["niri/workspaces"],
 
     "niri/workspaces": {
         "format": "{index}"
@@ -18,6 +18,6 @@
 
     "memory": {
         "interval": 2,
-        "format": "RAM\n{used:0.1f}G"
+        "format": "RAM\n{used:0.1f}GiB"
     }
 }

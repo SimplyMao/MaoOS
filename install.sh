@@ -48,10 +48,8 @@ systemctl --user enable dms.service
 systemctl --user enable mako.service
 systemctl --user enable waybar.service
 
-# 7. Enable TTY Autologin + Niri Autostart
 echo "🖥️ Enabling automatic Niri startup..."
 
-# Enable autologin on tty1 for the current user
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
 sudo tee /etc/systemd/system/getty@tty1.service.d/autologin.conf > /dev/null <<EOF
@@ -60,13 +58,15 @@ ExecStart=
 ExecStart=-/usr/bin/agetty --autologin $USER --noclear %I \$TERM
 EOF
 
-# Reload systemd so override is recognized
-sudo systemctl daemon-reexec
+# Add auto-start to bash profile
+if ! grep -q "exec niri" ~/.bash_profile 2>/dev/null; then
+cat >> ~/.bash_profile <<'EOF'
 
-# Enable niri user service
-systemctl --user enable niri.service
-
-# Allow user services to start at boot
-sudo loginctl enable-linger "$USER"
+# Auto-start Niri on tty1
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+    exec niri
+fi
+EOF
+fi
 
 echo "✨ Done! Welcome to MaoOS, please restart."

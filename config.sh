@@ -42,5 +42,7 @@ fi
 
 # 6. Enable Services
 sudo systemctl enable --now keyd
+sudo systemctl --user add-wants niri.service mako.service
+sudo systemctl --user add-wants niri.service waybar.service
 
 echo "✨ Done! Welcome to MaoOS, please restart."

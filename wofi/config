@@ -1,5 +1,5 @@
 show=drun
-term=kitty
+term=foot
 show_all=true
 gtk_dark=false
 location=center
@@ -10,5 +10,5 @@ line_wrap=word
 lines=8
 width=500
 no_actions=true
-prompt= Search | 검색 | Поиск | Sök
+prompt= Search | Sök
 hide_scroll=true

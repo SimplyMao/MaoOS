@@ -11,16 +11,16 @@ fi
 
 # 2. Install Packages
 echo "📦 Installing software..."
-yay -S --needed --noconfirm \
-    niri xwayland-satellite \
-    xdg-desktop-portal-gnome xdg-desktop-portal-gtk \
-    waybar nautilus foot neovim keyd wofi \
-    matugen qt6-multimedia-ffmpeg helium-browser-bin \
-    dconf gsettings-desktop-schemas
+
+sudo pacman -Syu --needed --noconfirm niri xwayland-satellite xdg-desktop-portal-gnome xdg-desktop-portal-gtk foot nautilus
+
+yay -S --needed --noconfirm dms-shell-bin matugen cava qt6-multimedia-ffmpeg helium-browser-bin
+
+systemctl --user add-wants niri.service dms
 
 # 3. Enable GNOME Dark Mode
 echo "🌙 Enabling GNOME dark mode..."
-gsettings set org.gnome.desktop.interface color-scheme prefer-dark || true
+dconf write /org/gnome/desktop/interface/color-scheme '"prefer-dark"'
 
 # 4. Configs
 echo "📂 Applying configs..."

@@ -192,7 +192,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-i" "/home/mao/Wallpapers/Wallpaper.jpg" "-m" "fill"
+spawn-at-startup "swaybg" "-i" "/home/ezza/Wallpapers/wallpaper.png" "-m" "fill"
 
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri"
 spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
@@ -278,7 +278,7 @@ window-rule {
 
 binds {
     Mod+Return { spawn "foot"; }
-    Mod+Space { spawn "rofi" "-show" "drun"; }
+    Mod+Space { spawn "wofi" "--show" "drun"; }
     Mod+B { spawn "helium-browser"  "--enable-features=UseOzonePlatform,RemoveRedirectionBitmap" "--ozone-platform=wayland" "--force-dark-mode"; }
     Mod+E { spawn "nautilus"; }
 
@@ -363,7 +363,7 @@ binds {
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
+    Mod+Alt+F { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".

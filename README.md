@@ -21,7 +21,7 @@ All configurations are designed for speed, minimalism, and usability in a Waylan
 
 ## 📦 Installation Guide
 
-I use the CachyOS installer without a desktop envirment and then i install this script
-by doing chmod +x config.sh and then ./config.sh
+1. Use CachyOS without a desktop
+2. Paste this: *curl -fsSL https://raw.githubusercontent.com/simplymao/maoos/main/install.sh | bash*
 
 The script will automaticly clone this repo and download the required packages.

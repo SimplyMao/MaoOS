@@ -39,9 +39,34 @@ if [ ! -d "$HOME/.config/nvim" ]; then
 fi
 
 # 6. Enable Services
+echo "⚙️ Enabling services..."
+
 systemctl enable --now keyd
-systemctl --user add-wants niri.service dms.service
-systemctl --user add-wants niri.service mako.service
-systemctl --user add-wants niri.service waybar.service
+
+systemctl --user enable niri.service
+systemctl --user enable dms.service
+systemctl --user enable mako.service
+systemctl --user enable waybar.service
+
+# 7. Enable TTY Autologin + Niri Autostart
+echo "🖥️ Enabling automatic Niri startup..."
+
+# Enable autologin on tty1 for the current user
+sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
+
+sudo tee /etc/systemd/system/getty@tty1.service.d/autologin.conf > /dev/null <<EOF
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin $USER --noclear %I \$TERM
+EOF
+
+# Reload systemd so override is recognized
+sudo systemctl daemon-reexec
+
+# Enable niri user service
+systemctl --user enable niri.service
+
+# Allow user services to start at boot
+sudo loginctl enable-linger "$USER"
 
 echo "✨ Done! Welcome to MaoOS, please restart."

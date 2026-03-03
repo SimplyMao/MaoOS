@@ -12,7 +12,7 @@ fi
 # 2. Install Packages
 echo "📦 Installing software..."
 
-sudo pacman -Syu --needed --noconfirm niri xwayland-satellite xdg-desktop-portal-gnome xdg-desktop-portal-gtk foot nautilus
+sudo pacman -Syu --needed --noconfirm niri xwayland-satellite xdg-desktop-portal-gnome xdg-desktop-portal-gtk mako foot nautilus
 
 yay -S --needed --noconfirm dms-shell-bin matugen cava qt6-multimedia-ffmpeg helium-browser-bin
 

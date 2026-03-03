@@ -13,7 +13,7 @@ fi
 echo "📦 Installing software..."
 yay -S --needed --noconfirm \
     niri xwayland-satellite \
-    xdg-desktop-portal xdg-desktop-portal-gtk \
+    xdg-desktop-portal-gnome xdg-desktop-portal-gtk \
     waybar nautilus foot neovim keyd wofi \
     matugen qt6-multimedia-ffmpeg helium-browser-bin \
     dconf gsettings-desktop-schemas

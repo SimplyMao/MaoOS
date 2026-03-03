@@ -48,25 +48,4 @@ systemctl --user enable dms.service
 systemctl --user enable mako.service
 systemctl --user enable waybar.service
 
-echo "🖥️ Enabling automatic Niri startup..."
-
-sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
-
-sudo tee /etc/systemd/system/getty@tty1.service.d/autologin.conf > /dev/null <<EOF
-[Service]
-ExecStart=
-ExecStart=-/usr/bin/agetty --autologin $USER --noclear %I \$TERM
-EOF
-
-# Add auto-start to bash profile
-if ! grep -q "exec niri" ~/.bash_profile 2>/dev/null; then
-cat >> ~/.bash_profile <<'EOF'
-
-# Auto-start Niri on tty1
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-    exec niri-session
-fi
-EOF
-fi
-
 echo "✨ Done! Welcome to MaoOS, please restart."

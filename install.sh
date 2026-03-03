@@ -16,8 +16,6 @@ sudo pacman -Syu --needed --noconfirm niri xwayland-satellite xdg-desktop-portal
 
 yay -S --needed --noconfirm dms-shell-bin matugen cava qt6-multimedia-ffmpeg helium-browser-bin
 
-systemctl --user add-wants niri.service dms
-
 # 3. Enable GNOME Dark Mode
 echo "🌙 Enabling GNOME dark mode..."
 dconf write /org/gnome/desktop/interface/color-scheme '"prefer-dark"'
@@ -41,8 +39,9 @@ if [ ! -d "$HOME/.config/nvim" ]; then
 fi
 
 # 6. Enable Services
-sudo systemctl enable --now keyd
-sudo systemctl --user add-wants niri.service mako.service
-sudo systemctl --user add-wants niri.service waybar.service
+systemctl enable --now keyd
+systemctl --user add-wants niri.service dms.service
+systemctl --user add-wants niri.service mako.service
+systemctl --user add-wants niri.service waybar.service
 
 echo "✨ Done! Welcome to MaoOS, please restart."

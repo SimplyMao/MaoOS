@@ -14,7 +14,7 @@ echo "📦 Installing software..."
 yay -S --needed --noconfirm \
     niri xwayland-satellite \
     xdg-desktop-portal xdg-desktop-portal-gtk \
-    waybar nautilus foot neovim keyd rofi \
+    waybar nautilus foot neovim keyd wofi \
     matugen qt6-multimedia-ffmpeg helium-browser-bin \
     dconf gsettings-desktop-schemas
 
@@ -27,9 +27,10 @@ echo "📂 Applying configs..."
 [ -d /tmp/maoos ] && rm -rf /tmp/maoos
 git clone https://github.com/SimplyMao/MaoOS.git /tmp/maoos
 
-mkdir -p ~/.config/niri ~/.config/waybar
+mkdir -p ~/.config/niri ~/.config/waybar ~/.config/wofi
 cp -r /tmp/maoos/niri/* ~/.config/niri/
 cp -r /tmp/maoos/waybar/* ~/.config/waybar/
+cp -r /tmp/maoos/wofi/* ~/.config/wofi/
 
 sudo mkdir -p /etc/keyd
 sudo cp /tmp/maoos/keyd/default.conf /etc/keyd/default.conf

@@ -12,10 +12,8 @@ fi
 # 2. Install Packages
 echo "📦 Installing software..."
 
-sudo pacman -Syu --needed --noconfirm niri xwayland-satellite xdg-desktop-portal-gnome xdg-desktop-portal-gtk 
-mako foot nautilus waybar wofi
-
-yay -S --needed --noconfirm dms-shell-bin matugen cava qt6-multimedia-ffmpeg helium-browser-bin
+sudo pacman -Syu --needed --noconfirm niri xwayland-satellite xdg-desktop-portal-gnome xdg-desktop-portal-gtk foot nautilus waybar wofi swaybg mako
+yay -S --needed --noconfirm helium-browser-bin
 
 # 3. Enable GNOME Dark Mode
 echo "🌙 Enabling GNOME dark mode..."
@@ -43,10 +41,5 @@ fi
 echo "⚙️ Enabling services..."
 
 systemctl enable --now keyd
-
-systemctl --user enable niri.service
-systemctl --user enable dms.service
-systemctl --user enable mako.service
-systemctl --user enable waybar.service
 
 echo "✨ Done! Welcome to MaoOS, please restart."

@@ -12,7 +12,8 @@ fi
 # 2. Install Packages
 echo "📦 Installing software..."
 
-sudo pacman -Syu --needed --noconfirm niri xwayland-satellite xdg-desktop-portal-gnome xdg-desktop-portal-gtk foot nautilus waybar wofi swaybg mako
+sudo pacman -Syu --needed --noconfirm niri xwayland-satellite xdg-desktop-portal-gnome xdg-desktop-portal-gtk 
+foot nautilus waybar wofi mako swaybg swayidle swaylock
 yay -S --needed --noconfirm helium-browser-bin
 
 # 3. Enable GNOME Dark Mode

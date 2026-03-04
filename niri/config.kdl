@@ -194,7 +194,6 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "swaybg" "-i" "/home/ezza/Wallpapers/wallpaper.png" "-m" "fill"
-spawn-at-startup "plasma-polkit-agent"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"

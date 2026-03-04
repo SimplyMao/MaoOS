@@ -1,6 +1,8 @@
 prefer-no-csd
 input {
     keyboard {
+        repeat-rate 35
+        repeat-delay 200
         xkb {
             layout "se"
         }

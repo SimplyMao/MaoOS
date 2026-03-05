@@ -36,6 +36,7 @@ PACMAN_PKGS=(
     xwayland-satellite
     xdg-desktop-portal-gnome
     xdg-desktop-portal-gtk
+    wl-clipboard
     foot
     nautilus
     waybar

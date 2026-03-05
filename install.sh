@@ -50,6 +50,7 @@ PACMAN_PKGS=(
 
 AUR_PKGS=(
     helium-browser-bin
+    macos-tahoe-cursor
 )
 
 sudo pacman -Syu --needed --noconfirm "${PACMAN_PKGS[@]}"

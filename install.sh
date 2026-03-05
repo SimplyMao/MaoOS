@@ -44,6 +44,7 @@ PACMAN_PKGS=(
     swaybg
     swayidle
     swaylock
+    keyd
 )
 
 AUR_PKGS=(

@@ -1,1 +1,39 @@
 
+*{
+  border: none;
+  border-radius: 0px;
+  font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
+  padding: 0;
+  margin: 0;
+  min-width: 10px;
+}
+
+window#waybar {
+  background-color: alpha(@bg0, 0.8);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+tooltip {
+  background: transparent;
+  border: 1px solid @blue;
+  border-radius: 12px;
+}
+
+tooltip label {
+  color: @fg;
+}
+
+#workspaces {
+  min-width: 0;
+  margin: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button {
+  color: transparent;
+  background: linear-gradient(180deg, @grey0 0%, @bg1 100%);
+  transition: all 0.3s ease-in-out;
+  min-width: 0;
+  margin: 5px 0;
+  border-radius: 3px;
+}

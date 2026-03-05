@@ -1,20 +1,57 @@
 {
-    "layer": "top",
-    "position": "left",
-    "width": 40,
-    
-    "modules-left": ["clock"],
-    "modules-center": ["niri/workspaces"],
-    "modules-right": ["tray"],
-    
-    "sway/window": {
-        "max-length": 50
+  "layer": "top",
+  "position": "left",
+  
+  "modules-left": ["clock", "group/misc"],
+  "modules-center": ["niri/workspaces"],
+  "modules-right": ["group/volume", "network", "battery", "tray"],
+
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "vertical"
+  },
+  
+  "group/volume": {
+    "orientation": "vertical",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-top-to-bottom": true
     },
-    "battery": {
-        "format": "{capacity}% {icon}",
-        "format-icons": ["", "", "", "", ""]
+    "modules": ["pulseaudio", "pulseaudio/slider"]
+  },
+
+  "group/misc": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "misc-modules",
+      "transition-top-to-bottom": false
     },
-    "clock": {
-        "format-alt": "{:%a, %d. %b  %H:%M}"
+    "modules": [
+      "custom/seperator"
+    ]
+  },
+
+  "custom/seperator": {
+    "format": "─",
+    "on-click": "activate"
+  },
+
+  "niri/workspaces": {
+    "format": "{id}",
+    "tooltip": false
+  },
+
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10,
+    "icons": {
+      "blueman": "bluetooth"
     }
+  },
+
+  "clock": {
+    "format": "{:%H\n%M}"
+  }
 }

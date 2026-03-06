@@ -47,6 +47,7 @@ PACMAN_PKGS=(
     swaylock
     keyd
     neovim
+    matugen
 )
 
 AUR_PKGS=(

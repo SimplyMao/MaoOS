@@ -54,6 +54,8 @@ output "DP-2" {
   position x=1080 y=0
 }
 
+include "./colors.kdl"
+
 layout {
     
     gaps 9
@@ -71,41 +73,18 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-
-        width 1
-
-        active-color "#1481BA"
-
-        inactive-color "#505050"
-
+      off
     }
-
+    
+    background-color "transparent"
     border {
-        on
-
         width 1
-        active-color "#555555B3"
-
-        inactive-color "#343434B3"
     }
-
-    shadow {
-        on
-        
-        softness 0
-
-        spread 1
-
-        offset x=0 y=0
-
-        color "#111111CC"
-    }
-
-    struts {
-    }
+    shadow {}
+    
 }
 
-spawn-at-startup "swaybg" "-i" "/home/mao/Wallpapers/wallpaper.jpg" "-m" "fill"
+spawn-at-startup "swaybg" "-i" "/home/mao/Pictures/Wallpapers/wallpaper.png" "-m" "fill"
 spawn-at-startup "waybar"
 spawn-at-startup "mako"
 spawn-at-startup "swayidle" "-w" "timeout" "601" "niri msg action power-off-monitors" "timeout" "600" "swaylock -f" "before-sleep" "swaylock -f"
@@ -125,11 +104,8 @@ animations {
 }
 
 window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
-
-window-rule {
+    match is-active=false
+    opacity 0.90
 }
 
 window-rule {

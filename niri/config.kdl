@@ -51,7 +51,14 @@ output "DP-2" {
   mode "2560x1440@360"
   scale 1.25
   transform "normal"
-  position x=1080 y=0
+  position x=1080 y=330
+}
+
+output "HDMI-A-2" {
+  mode "1920x1080@60"
+  scale 1
+  transform "90"
+  position x=0 y=0
 }
 
 include "./colors.kdl"
@@ -82,6 +89,11 @@ layout {
     }
     shadow {}
     
+}
+
+overview {
+  zoom 0.5
+  backdrop-color "black"
 }
 
 spawn-at-startup "waybar"

@@ -48,6 +48,7 @@ PACMAN_PKGS=(
     keyd
     neovim
     matugen
+    python-pip        # Added: Required for Matuwall
 )
 
 AUR_PKGS=(
@@ -114,6 +115,21 @@ if systemctl list-unit-files keyd.service &>/dev/null; then
     sudo systemctl enable --now keyd
 else
     warn "keyd service not found — skipping."
+fi
+
+# ─── 7. Custom Matuwall Setup ─────────────────
+log "🖼️  Installing Matuwall (Swaybg Edition)..."
+
+# Ensure bin directory exists
+mkdir -p "$HOME/.local/bin"
+
+# Install Matuwall from your GitHub release
+python3 -m pip install https://github.com/SimplyMao/Matuwall-swaybg/archive/refs/tags/1.0.tar.gz --break-system-packages --force-reinstall
+
+# Add .local/bin to PATH in .bashrc if not already there
+if ! grep -q ".local/bin" "$HOME/.bashrc"; then
+    echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
+    log "✅ Added ~/.local/bin to PATH in .bashrc"
 fi
 
 log "✨ Done! Welcome to MaoOS. Please restart your system."

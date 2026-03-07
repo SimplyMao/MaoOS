@@ -8,7 +8,7 @@
   "margin-left": 9,
   "margin-right": 0,
   
-  "modules-left": ["clock", "misc"],
+  "modules-left": ["clock", "group/misc"],
   "modules-center": ["niri/workspaces"],
   "modules-right": ["tray", "group/volume"],
 

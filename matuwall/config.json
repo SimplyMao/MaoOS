@@ -6,16 +6,13 @@
     "thumbnail_shape": "landscape",
     "batch_size": 16,
     "window_decorations": false,
-    "window_grid_cols": 3,
-    "window_grid_rows": 3,
+    "window_grid_cols": 4,
+    "window_grid_rows": 1,
     "window_grid_max_width_pct": 80,
     "mouse_enabled": false,
     "keep_ui_alive": false
   },
-  "wall": {
-    "wall_mode_only": false,
-    "wall_awww_flags": "--socket wayland-1 --transition-type center --transition-step 90 --transition-fps 60 --transition-duration 2"
-  },
+  
   "theme": {
     "window_bg": "rgba(15, 18, 22, 0.58)",
     "text_color": "#e7e7e7",

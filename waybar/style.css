@@ -1,11 +1,9 @@
-
 *{
   border: none;
   border-radius: 0px;
-  font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
   padding: 0;
   margin: 0;
-  min-width: 10px;
+  min-width: 0px;
 }
 
 window#waybar {
@@ -14,26 +12,35 @@ window#waybar {
 }
 
 tooltip {
-  background: transparent;
+  background: white;
   border: 1px solid @blue;
   border-radius: 12px;
 }
 
 tooltip label {
-  color: @fg;
+  color: white;
 }
 
 #workspaces {
   min-width: 0;
-  margin: 20px;
+  margin: 9px;
   transition: all 0.3s ease-in-out;
 }
 
 #workspaces button {
-  color: transparent;
+  color: white;
   background: linear-gradient(180deg, @grey0 0%, @bg1 100%);
   transition: all 0.3s ease-in-out;
   min-width: 0;
-  margin: 5px 0;
+  margin: 0px 0;
   border-radius: 3px;
+}
+
+#clock {
+  color: white;
+  font-size: 25px;
+}
+
+#volume {
+  color: white;
 }

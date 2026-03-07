@@ -1,10 +1,17 @@
 {
+  "reload_style_on_change": true,
   "layer": "top",
   "position": "left",
+  "output": "DP-2",
+
+  "margin-top": 10,
+  "margin-bottom": 10,
+  "margin-left": 9,
+  "margin-right": 0,
   
   "modules-left": ["clock", "group/misc"],
   "modules-center": ["niri/workspaces"],
-  "modules-right": ["group/volume", "network", "battery", "tray"],
+  "modules-right": ["group/volume", "tray"],
 
   "pulseaudio/slider": {
     "min": 0,
@@ -34,17 +41,21 @@
   },
 
   "custom/seperator": {
-    "format": "─",
+    "format": "──",
     "on-click": "activate"
   },
 
-  "niri/workspaces": {
-    "format": "{id}",
-    "tooltip": false
-  },
+"niri/workspaces": {
+	"on-click": "activate",
+  "format": "{icon}",
+  "format-icons": {
+      "default": "〇",
+      "active": "◉"
+    }
+},
 
   "tray": {
-    "icon-size": 21,
+    "icon-size": 15,
     "spacing": 10,
     "icons": {
       "blueman": "bluetooth"

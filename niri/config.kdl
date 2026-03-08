@@ -65,15 +65,15 @@ include "./colors.kdl"
 
 layout {
     
-    gaps 9
+    gaps 6
 
     center-focused-column "never"
 
     preset-column-widths {
     
-        proportion 0.33333
         proportion 0.5
         proportion 0.66667
+        proportion 0.8
 
     }
 
@@ -108,7 +108,7 @@ cursor {
 hotkey-overlay {
 }
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Downloads/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
 
@@ -116,11 +116,11 @@ animations {
 
 window-rule {
     match is-active=false
-    opacity 0.90
+    opacity 0.88
 }
 
 window-rule {
-    geometry-corner-radius 7
+    geometry-corner-radius 6
     clip-to-geometry true
 }
 
@@ -197,8 +197,8 @@ binds {
     Mod+T { toggle-column-tabbed-display; }
 
     Mod+R { switch-preset-column-width; }
-    Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
+    Mod+Alt+R { switch-preset-window-height; }
+    Mod+Shift+r { reset-window-height; }
     Mod+F { maximize-column; }
     Mod+Alt+F { fullscreen-window; }
 
@@ -206,7 +206,7 @@ binds {
 
     Mod+C { center-column; }
 
-    Mod+Ctrl+C { center-visible-columns; }
+    Mod+Alt+C { center-visible-columns; }
 
     Mod+Minus { set-column-width "-10%"; }
     Mod+Plus { set-column-width "+10%"; }
@@ -217,11 +217,7 @@ binds {
     Mod+V       { toggle-window-floating; }
     Mod+Alt+V { switch-focus-between-floating-and-tiling; }
 
-
-
-
     Mod+S { screenshot; }
-
 
     Mod+0 { quit; }
 }

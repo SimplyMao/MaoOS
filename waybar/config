@@ -2,10 +2,11 @@
   "reload_style_on_change": true,
   "layer": "top",
   "position": "left",
+  "output": "DP-2",
 
   "margin-top": 10,
   "margin-bottom": 10,
-  "margin-left": 9,
+  "margin-left": 4,
   "margin-right": 0,
   
   "modules-left": ["clock", "group/misc"],

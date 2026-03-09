@@ -24,4 +24,4 @@ All configurations are designed for speed, minimalism, and usability in a Waylan
 1. Use CachyOS without a desktop
 2. Paste this: ```curl -fsSL https://raw.githubusercontent.com/simplymao/maoos/main/install.sh | bash```
 
-The script will automaticly clone this repo and download the required packages.
+The script will automaticly clone this repo and download the required packages and apply config files.

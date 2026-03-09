@@ -14,6 +14,7 @@ This setup includes:
 - **Nautilus** – Lightweight file manager.
 - **Neovim** – Configured as my text editor.
 - **Helium Browser** – Lightweight browser for daily use.
+- **Matugen** - A themeing application.
 
 All configurations are designed for speed, minimalism, and usability in a Wayland session.
 

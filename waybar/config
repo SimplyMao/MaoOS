@@ -10,22 +10,7 @@
   
   "modules-left": ["clock", "group/misc"],
   "modules-center": ["ext/workspaces"],
-  "modules-right": ["tray", "group/volume"],
-
-  "pulseaudio/slider": {
-    "min": 0,
-    "max": 100,
-    "orientation": "vertical"
-  },
-  
-  "group/volume": {
-    "orientation": "vertical",
-    "drawer": {
-      "transition-duration": 500,
-      "transition-top-to-bottom": true
-    },
-    "modules": ["pulseaudio", "pulseaudio/slider"]
-  },
+  "modules-right": ["tray", "custom/wlogout"],
 
   "group/misc": {
     "orientation": "inherit",
@@ -41,7 +26,6 @@
 
   "custom/seperator": {
     "format": "──",
-    "on-click": "activate"
   },
 
 "ext/workspaces": {
@@ -63,5 +47,13 @@
 
   "clock": {
     "format": "{:%H\n%M}"
+  },
+  
+  "custom/wlogout": {
+    "format": "⏻",
+    "tooltip": "Logout menu",
+    "on-click": "wlogout",
+    "escape": true
   }
 }
+

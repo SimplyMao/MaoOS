@@ -30,6 +30,7 @@
 
 "ext/workspaces": {
 	"on-click": "activate",
+  "ignore-hidden": false,
   "format": "{icon}",
   "format-icons": {
       "default": "〇",

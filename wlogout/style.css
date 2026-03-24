@@ -1,10 +1,9 @@
 * {
     background-image: none;
     font-size: 20px;
-    font-family: "JetBrains Mono NFM";
 }
 
-@import '../../.config/wlogout/colors.css';
+@import "colors.css";
 
 window {
     background-color: rgba(17, 17, 17, 0.45)
@@ -63,3 +62,4 @@ button span {
 #hibernate {
     background-image: image(url("./icons/hibernate.png"));
 }
+

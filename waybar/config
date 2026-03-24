@@ -1,6 +1,6 @@
 {
   "reload_style_on_change": true,
-  "layer": "top",
+  "layer": "buttom",
   "position": "left",
 
   "margin-top": 3,

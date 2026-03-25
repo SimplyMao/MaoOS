@@ -1,6 +1,6 @@
 {
   "reload_style_on_change": true,
-  "layer": "buttom",
+  "layer": "top",
   "position": "left",
 
   "margin-top": 3,
@@ -28,16 +28,21 @@
     "format": "──",
   },
 
-"ext/workspaces": {
-	"on-click": "activate",
-  "ignore-hidden": false,
-  "format": "{icon}",
-  "format-icons": {
-      "default": "〇",
-      "active": "◉"
-    }
-},
+  "ext/workspaces": {
+    "format": "{name}",
+    "ignore-hidden": false,
+    "on-click": "activate",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "active": "",
+      "default": ""
+  },
 
+},
   "tray": {
     "icon-size": 20,
     "spacing": 15,

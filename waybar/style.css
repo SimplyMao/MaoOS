@@ -1,50 +1,51 @@
 *{
   border: none;
-  border-radius: 0px;
+  border-radius: 0;
   padding: 0;
   margin: 0;
-  min-width: 0px;
-}
-
-#waybar {
-  background-color: alpha(@bg0, 0.8);
-}
-
-#tooltip {
-  background: white;
-  border: 1px solid @blue;
-  border-radius: 12px;
-}
-
-#tooltip label {
-  color: white;
-}
-
-#workspaces {
   min-width: 0;
-  margin: 9px;
-  transition: all 0.3s ease-in-out;
 }
 
-#workspaces button {
-  color: white;
-  background: linear-gradient(180deg, @grey0 0%, @bg1 100%);
-  transition: all 0.3s ease-in-out;
-  min-width: 0;
-  margin: 0px 0;
-  border-radius: 3px;
+window#waybar {
+  background: transparent;
+
+  margin: 0px 0px 0px 0px;
+
+  border-radius: 0px 7px 7px 0px;
 }
 
 #clock {
   color: white;
-  font-size: 22px;
+  font-weight: 500;
+  font-size: 24px;
 }
 
 #custom-wlogout {
   color: white;
-  font-size: 32px;
+  font-size: 28px;
 }
 
 #custom-seperator {
   color: white;
+}
+
+#workspaces button {
+    background-color: transparent;
+    padding: 2px 4px;
+    border-radius: 99px;
+    margin: 0 2px;
+    transition: all 300ms ease-in-out;
+    min-width: 7px;
+}
+
+#workspaces button.empty {
+    color: grey;
+}
+
+#workspaces button.active {
+    background-color: transparent;
+    color: white;
+    min-width: 1.5rem;
+    font-weight: 500;
+    transition: none;
 }

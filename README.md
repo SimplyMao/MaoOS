@@ -1,6 +1,6 @@
-# MaoOS is based on Niri
+# MaoOS is based on MangoWM
 
-This repository contains my personal **Niri** configurations along with related setup files for a minimal and efficient Wayland-based environment.
+This repository contains my personal **MangoWM** configurations along with related setup files for a minimal and efficient Wayland-based environment.
 
 ---
 
@@ -8,7 +8,7 @@ This repository contains my personal **Niri** configurations along with related 
 
 This setup includes:
 
-- **Niri** – A scrolling tiling window compositor for Wayland.
+- **MangoWM** – A tiling window compositor based on dwl for Wayland.
 - **Waybar** – Customizable status bar for Wayland.
 - **Foot** – Lightweight Wayland-compatible terminal.
 - **Nautilus** – Lightweight file manager.

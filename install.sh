@@ -32,7 +32,6 @@ fi
 log "📦 Installing packages..."
 
 PACMAN_PKGS=(
-    niri
     xwayland-satellite
     xdg-desktop-portal-wlr
     wl-clipboard
@@ -50,6 +49,7 @@ PACMAN_PKGS=(
 )
 
 AUR_PKGS=(
+    mangowm-git
     helium-browser-bin
     macos-tahoe-cursor
 )

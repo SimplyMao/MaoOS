@@ -16,6 +16,7 @@ window#waybar {
 
 #clock {
   color: white;
+  font-family: monospace;
   font-weight: 500;
   font-size: 24px;
 }

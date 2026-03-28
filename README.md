@@ -1,6 +1,6 @@
 # MaoOS is based on MangoWM
 
-This repository contains my personal **MangoWM** configurations along with related setup files for a minimal and efficient Wayland-based environment with NEOVIM keybinds.
+This repository contains my personal **MangoWM** configurations along with related setup files for a minimal and efficient Wayland-based environment with Neovim keybinds.
 
 ---
 

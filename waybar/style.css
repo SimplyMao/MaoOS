@@ -7,11 +7,11 @@
 }
 
 window#waybar {
-  background: transparent;
+  background: rgba(67, 67, 67, 0.2);
 
   margin: 0px 0px 0px 0px;
 
-  border-radius: 0px 7px 7px 0px;
+  border-radius: 0px 0px 0px 0px;
 }
 
 #clock {

@@ -34,21 +34,19 @@ log "📦 Installing packages..."
 PACMAN_PKGS=(
     niri
     xwayland-satellite
-    xdg-desktop-portal-gnome
-    xdg-desktop-portal-gtk
+    xdg-desktop-portal-wlr
     wl-clipboard
     foot
     nautilus
     waybar
     wofi
     mako
-    swaybg
+    awww
     swayidle
     swaylock
     keyd
     neovim
     matugen
-    python-pip        # Added: Required for Matuwall
 )
 
 AUR_PKGS=(
@@ -74,9 +72,17 @@ MAOOS_DIR=$(mktemp -d)
 git clone https://github.com/SimplyMao/MaoOS.git "$MAOOS_DIR"
 
 declare -A CONFIG_DIRS=(
-    ["$MAOOS_DIR/niri"]="$HOME/.config/niri"
+    ["$MAOOS_DIR/mango"]="$HOME/.config/mango"
     ["$MAOOS_DIR/waybar"]="$HOME/.config/waybar"
     ["$MAOOS_DIR/wofi"]="$HOME/.config/wofi"
+    ["$MAOOS_DIR/foot"]="$HOME/.config/foot"
+    ["$MAOOS_DIR/gtk-3.0"]="$HOME/.config/gtk-3.0"
+    ["$MAOOS_DIR/gtk-4.0"]="$HOME/.config/gtk-4.0"
+    ["$MAOOS_DIR/matugen"]="$HOME/.config/matugen"
+    ["$MAOOS_DIR/qt5ct"]="$HOME/.config/qt5ct"
+    ["$MAOOS_DIR/qt6ct"]="$HOME/.config/qt6ct"
+    ["$MAOOS_DIR/matuwall"]="$HOME/.config/matuwall"
+    ["$MAOOS_DIR/wlogout"]="$HOME/.config/wlogout"
 )
 
 for src in "${!CONFIG_DIRS[@]}"; do
@@ -116,15 +122,6 @@ if systemctl list-unit-files keyd.service &>/dev/null; then
 else
     warn "keyd service not found — skipping."
 fi
-
-# ─── 7. Custom Matuwall Setup ─────────────────
-log "🖼️  Installing Matuwall (Swaybg Edition)..."
-
-# Ensure bin directory exists
-mkdir -p "$HOME/.local/bin"
-
-# Install Matuwall from your GitHub release
-python3 -m pip install https://github.com/SimplyMao/Matuwall-swaybg/archive/refs/tags/1.0.tar.gz --break-system-packages --force-reinstall
 
 # Add .local/bin to PATH in .bashrc if not already there
 if ! grep -q ".local/bin" "$HOME/.bashrc"; then

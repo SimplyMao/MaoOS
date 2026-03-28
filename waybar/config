@@ -3,9 +3,9 @@
   "layer": "top",
   "position": "left",
 
-  "margin-top": 3,
+  "margin-top": 0,
   "margin-bottom": 0,
-  "margin-left": 1,
+  "margin-left": 0,
   "margin-right": 0,
   
   "modules-left": ["clock", "group/misc"],

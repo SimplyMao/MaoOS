@@ -38,6 +38,7 @@ PACMAN_PKGS=(
     foot
     nautilus
     waybar
+    wlogout
     wofi
     mako
     awww

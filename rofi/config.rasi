@@ -1,17 +1,8 @@
-/**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- * 
- * Rofi Theme File
- * Rofi Version: 1.7.3
- **/
 
-/*****----- Configuration -----*****/
 configuration {
 	modi:                       "drun";
     show-icons:                 true;
-    display-drun:               "";
+    display-drun:               " ❯ ";
 	drun-display-format:        "{name}";
 }
 
@@ -61,7 +52,7 @@ inputbar {
     border-radius:               0px;
     border-color:                @selected;
     background-color:            @selected;
-    text-color:                  @background;
+    text-color:                  @surface;
     children:                    [ "prompt", "entry" ];
 }
 
@@ -82,7 +73,7 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search...";
+    placeholder:                 "";
     placeholder-color:           inherit;
 }
 
@@ -106,7 +97,7 @@ listview {
     border-radius:               0px;
     border-color:                @selected;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @on-surface;
     cursor:                      "default";
 }
 scrollbar {
@@ -126,16 +117,16 @@ element {
     border-radius:               0px;
     border-color:                @selected;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @on-surface;
     cursor:                      pointer;
 }
 element normal.normal {
-    background-color:            @background;
-    text-color:                  @foreground;
+    background-color:            @surface;
+    text-color:                  @on-surface;
 }
 element selected.normal {
     background-color:            @background-alt;
-    text-color:                  @foreground;
+    text-color:                  @on-surface;
 }
 element-icon {
     background-color:            transparent;
@@ -158,12 +149,12 @@ error-message {
     border:                      2px solid;
     border-radius:               12px;
     border-color:                @selected;
-    background-color:            @background;
-    text-color:                  @foreground;
+    background-color:            @surface;
+    text-color:                  @on-surface;
 }
 textbox {
-    background-color:            @background;
-    text-color:                  @foreground;
+    background-color:            @surface;
+    text-color:                  @on-surface;
     vertical-align:              0.5;
     horizontal-align:            0.0;
     highlight:                   none;

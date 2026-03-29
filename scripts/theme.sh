@@ -19,7 +19,7 @@ choice=$(ls "$WALLPAPER_DIR" | rofi -dmenu -p "Select Wallpaper")
 img="$WALLPAPER_DIR/$choice"
 
 # Set wallpaper using swww (smooth transition)
-awww img "$img"
+awww img "$img" --transition-type random --transition-fps 60
 
 # Generate colors with Matugen
 matugen image "$img" --source-color-index 0

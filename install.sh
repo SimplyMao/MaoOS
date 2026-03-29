@@ -84,6 +84,7 @@ declare -A CONFIG_DIRS=(
     ["$MAOOS_DIR/wlogout"]="$HOME/.config/wlogout"
     ["$MAOOS_DIR/fastfetch"]="$HOME/.config/fastfetch"
     ["$MAOOS_DIR/rofi"]="$HOME/.config/rofi"
+    ["$MAOOS_DIR/scripts"]="$HOME/.config/scripts"
 )
 
 for src in "${!CONFIG_DIRS[@]}"; do

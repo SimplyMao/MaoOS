@@ -47,6 +47,7 @@ PACMAN_PKGS=(
     keyd
     neovim
     matugen
+    brightnessctl
 )
 
 AUR_PKGS=(

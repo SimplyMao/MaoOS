@@ -39,7 +39,7 @@ PACMAN_PKGS=(
     nautilus
     waybar
     wlogout
-    wofi
+    rofi-wayland
     mako
     awww
     swayidle
@@ -75,16 +75,15 @@ git clone https://github.com/SimplyMao/MaoOS.git "$MAOOS_DIR"
 declare -A CONFIG_DIRS=(
     ["$MAOOS_DIR/mango"]="$HOME/.config/mango"
     ["$MAOOS_DIR/waybar"]="$HOME/.config/waybar"
-    ["$MAOOS_DIR/wofi"]="$HOME/.config/wofi"
     ["$MAOOS_DIR/foot"]="$HOME/.config/foot"
     ["$MAOOS_DIR/gtk-3.0"]="$HOME/.config/gtk-3.0"
     ["$MAOOS_DIR/gtk-4.0"]="$HOME/.config/gtk-4.0"
     ["$MAOOS_DIR/matugen"]="$HOME/.config/matugen"
     ["$MAOOS_DIR/qt5ct"]="$HOME/.config/qt5ct"
     ["$MAOOS_DIR/qt6ct"]="$HOME/.config/qt6ct"
-    ["$MAOOS_DIR/matuwall"]="$HOME/.config/matuwall"
     ["$MAOOS_DIR/wlogout"]="$HOME/.config/wlogout"
     ["$MAOOS_DIR/fastfetch"]="$HOME/.config/fastfetch"
+    ["$MAOOS_DIR/rofi"]="$HOME/.config/rofi"
 )
 
 for src in "${!CONFIG_DIRS[@]}"; do
